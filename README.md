@@ -1,62 +1,108 @@
-📦 UWAIS TELUR - Aplikasi Penjualan Telur Berbasis Web
+# 🥚 Uwais Telur — Point of Sale & Distribution Management System
 
-📌 Deskripsi Singkat:
-Uwais Telur adalah aplikasi berbasis web yang dikembangkan untuk membantu UMKM agen telur dalam mencatat transaksi penjualan, pembelian, pengelolaan stok, data pelanggan, suplier, serta pencetakan nota transaksi. Proyek ini dikembangkan sebagai Tugas Akhir Mahasiswa Sistem Informasi dengan metode Rapid Application Development (RAD).
+**A lightweight, offline-first web-based POS, inventory, and transaction management system tailored for wholesale and retail egg distribution.**
 
-✨ Fitur-Fitur Utama:
-1️⃣ Pencatatan transaksi penjualan
-2️⃣ Manajemen data pelanggan
-3️⃣ Manajemen data suplier
-4️⃣ Pengelolaan stok barang
-5️⃣ Pencatatan pembelian ke suplier
-6️⃣ Pencetakan nota transaksi (bisa print)
-7️⃣ Dashboard ringkasan transaksi & stok
-8️⃣ Fitur pencarian, filter, dropdown limit, dan pagination
-9️⃣ Validasi input dan umpan balik alert pengguna
+[Overview](https://www.google.com/search?q=%23-overview) • [Key Features](https://www.google.com/search?q=%23-key-features) • [Tech Stack](https://www.google.com/search?q=%23-tech-stack) • [Architecture](https://www.google.com/search?q=%23-architecture) • [Getting Started](https://www.google.com/search?q=%23-getting-started) • [Publication](https://www.google.com/search?q=%23-research--publication)
 
-🛠️ Teknologi yang Digunakan:
-🔹 Backend: Node.js + ExpressJS
-🔹 Frontend: EJS Template + Bootstrap (NiceAdmin)
-🔹 Database: SQLite (bisa dikembangkan ke MySQL)
-🔹 Arsitektur: Model-View-Controller (MVC)
+---
 
-📂 Struktur Folder Proyek (disederhanakan):
-1. backend → controller & model
-2. routes → endpoint per modul
-3. CLIENT/views → tampilan HTML (EJS)
-4. CLIENT/assets → CSS, JS, gambar
-5. config → koneksi & konfigurasi DB
-6. uwaistelur.db → database SQLite lokal
-7. app.js → file utama backend server
-8. package.json → konfigurasi dependensi node
-9. README.txt → file dokumentasi ini
+## 📖 Overview
 
-🚀 Cara Menjalankan Aplikasi:
-1. Clone repositori:
-   git clone https://github.com/Nopall-Donat/uwais-telur.git
+**Uwais Telur POS** is a custom-built web application designed to streamline daily operations for egg distribution businesses. Legacy retail POS tools often suffer from bloated, irrelevant features, unintuitive payment tracking, and rigid data lock-in.
 
-2. Masuk ke folder dan install dependensi:
-   cd uwais-telur
-   npm install
+Built on a clean **Model-View-Controller (MVC)** architecture, this system runs locally without requiring an active internet connection—ensuring zero-latency operations at the storefront while maintaining strict transactional integrity across sales, supplier procurement, stock levels, and installment payments.
 
-3. Jalankan server lokal:
-   node app.js
+---
 
-4. Akses aplikasi melalui browser:
-   http://localhost:3000
+## ✨ Key Features
 
-🧪 Metode Pengujian:
-🔸 Blackbox Testing: Pengujian fungsi utama tanpa melihat kode program
-🔸 UAT (User Acceptance Testing):
-   - Alpha Testing: oleh pengembang (uji fungsi & logika)
-   - Beta Testing: oleh pengguna akhir (admin toko)
-🔸 Instrumen: Checklist uji fitur, observasi langsung, kuisioner kepuasan
+* 🛒 **Sales & Multi-Item Order Processing**
+Create itemized sales orders rapidly with dynamic search (`Select2`), automatic subtotal calculations, and inline customer registration without leaving the transaction workflow.
+* 💳 **Real-Time Payment & Debt Monitoring**
+Supports both full and partial (installment) payments for customer receivables and supplier payables, complete with color-coded status indicators (`Lunas` / `Belum Lunas`) and payment history logs.
+* 📦 **Automated Inventory Synchronization**
+Stock quantities automatically adjust in real time whenever sales orders or supplier purchase transactions are recorded, updated, or voided.
+* 📊 **One-Click Excel Data Backup**
+Export transaction records directly into `.xlsx` spreadsheets for independent financial reporting, external auditing, and offline data redundancy.
+* 🖨️ **Configurable Receipt Printing**
+Built-in thermal/invoice receipt generation driven by a modular hardware configuration (`printer-config.json`).
+* 🔐 **Secure Admin Authentication & Middleware**
+Session-based access control, request logging, and centralized error handling to safeguard operational records.
 
-👨‍💻 Developer:
-Nama: Muhammad Naufal Arif
-Program Studi: Sistem Informasi
-Universitas: Sekolah Tinggi Teknologi Terpadu Nurul Fikri
-Tahun: 2025
+---
 
-📄 Lisensi:
-Repositori ini dibuat untuk keperluan akademik (Tugas Akhir) dan tidak diperbolehkan digunakan untuk tujuan komersial tanpa izin tertulis dari pengembang.
+## 🛠️ Tech Stack
+
+| Layer | Technology | Purpose |
+| --- | --- | --- |
+| **Runtime** | Node.js | Server-side JavaScript execution environment |
+| **Backend Framework** | Express.js | RESTful routing, middleware pipeline, and server logic |
+| **Templating Engine** | EJS | Server-side dynamic HTML rendering |
+| **Database Engine** | SQLite | Lightweight, serverless embedded relational storage |
+| **Frontend UI** | HTML5, CSS3, jQuery, Select2 | Responsive dashboard layout and searchable dropdown controls |
+| **Code Quality & CI** | ESLint, GitHub Actions | Automated linting and continuous integration checks |
+
+---
+
+## 🏗️ Architecture
+
+The application follows a decoupled **MVC (Model-View-Controller)** pattern separating business logic, data persistence, and presentation layers. For security and data privacy, database schemas and internal storage structures are abstracted behind dedicated model layers.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* **Node.js** (v18.x or higher recommended)
+* **npm** (comes bundled with Node.js)
+
+### Installation & Local Setup
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/your-username/uwais-telur.git
+cd uwais-telur
+
+```
+
+
+2. **Install dependencies**
+```bash
+npm install
+
+```
+
+
+3. **Configure environment & hardware**
+* Review `config/config.js` to adjust application ports or session secrets as needed.
+* Update `config/printer-config.json` to match your local receipt printer setup.
+
+
+4. **Start the application**
+```bash
+npm start
+
+```
+
+
+5. **Access the dashboard**
+Open your browser and navigate to `http://localhost:3000` (or your configured port).
+
+---
+
+## 📄 Research & Publication
+
+The engineering methodology, requirements analysis, and system evaluation behind this project have been peer-reviewed and published in **The Indonesian Journal of Computer Science (IJCS)**:
+
+> **Pengembangan Sistem Transaksi Penjualan Toko Uwais Telur Menggunakan Metode Rapid Application Development**
+> *Muhammad Naufal Arif, Amalia, Misna Asqia*
+> 🔗 **DOI:** [https://doi.org/10.33022/ijcs.v14i5.4961](https://doi.org/10.33022/ijcs.v14i5.4961)
+> 🌐 **Article URL:** [https://www.ijcs.net/ijcs/index.php/ijcs/article/view/4961](https://www.ijcs.net/ijcs/index.php/ijcs/article/view/4961)
+
+---
+
+## 👨‍💻 Author & License
+
+* **Developer:** Muhammad Naufal Arif
+* **License:** Licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/).
